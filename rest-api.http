@@ -1,10 +1,15 @@
 GET http://localhost:8080/bankAccounts
 Accept: application/json
 
+<> 2022-10-23T202804.200.json
+<> 2022-10-23T202357.500.json
+
 ###
 
-GET http://localhost:8080/bankAccounts/10fe70b0-e905-47c8-b853-e9219cce56e5
+GET http://localhost:8080/bankAccounts/1fa4c7ac-79db-4e3c-94d7-1d4c33ca1cd1
 Accept: application/json
+
+<> 2022-10-23T202954.200.json
 
 ###
 
@@ -24,3 +29,17 @@ DELETE http://localhost:8080/bankAccounts/77f8920c-d1e6-4495-9a30-7767bcb9f099
 
 
 ###
+
+PUT http://localhost:8080/bankAccounts/1fa4c7ac-79db-4e3c-94d7-1d4c33ca1cd1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "balance": 99999
+
+}
+
+<> 2022-10-23T202943.200.json
+
+###
+
