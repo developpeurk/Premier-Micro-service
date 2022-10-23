@@ -1,0 +1,26 @@
+GET http://localhost:8080/bankAccounts
+Accept: application/json
+
+###
+
+GET http://localhost:8080/bankAccounts/10fe70b0-e905-47c8-b853-e9219cce56e5
+Accept: application/json
+
+###
+
+POST http://localhost:8080/bankAccounts
+Accept: application/json
+Content-Type: application/json
+
+{
+  "balance": 9000,
+  "type": "SAVING_ACCOUNT",
+  "currency": "EUR"
+}
+
+###
+
+DELETE http://localhost:8080/bankAccounts/77f8920c-d1e6-4495-9a30-7767bcb9f099
+
+
+###
