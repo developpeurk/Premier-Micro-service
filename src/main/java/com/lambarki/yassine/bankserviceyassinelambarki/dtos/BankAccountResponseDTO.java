@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +13,7 @@ import java.util.Date;
 @Builder
 public class BankAccountResponseDTO {
     private String id;
-    private Date createdAt;
+    private LocalDate createdAt;
     private Double balance;
     private String currency;
     private AccountType type;
