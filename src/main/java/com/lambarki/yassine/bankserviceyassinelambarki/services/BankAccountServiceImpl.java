@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -39,8 +40,10 @@ public class BankAccountServiceImpl implements BankAccountService {
     }
 
     @Override
-    public BankAccountResponseDTO update(BankAccountRequestDTO bankAccountRequestDTO) {
+    public BankAccountResponseDTO update(String id, BankAccountRequestDTO bankAccountRequestDTO) {
         BankAccount bankAccount = bankAccountMapper.toBankAccount(bankAccountRequestDTO);
+        bankAccount.setId(id);
+        bankAccount.setCreatedAt(LocalDate.now());
         BankAccount savedBankAccount = bankAccountRepository.save(bankAccount);
         return bankAccountMapper.fromBankAccount(savedBankAccount);
     }
@@ -59,8 +62,10 @@ public class BankAccountServiceImpl implements BankAccountService {
     }
 
     @Override
-    public void deleteBankAccount(String id) {
+    public String deleteBankAccount(String id) {
+        bankAccountRepository.findById(id).orElseThrow(() -> new RuntimeException(String.format("The account with %s not found", id)));
         bankAccountRepository.deleteById(id);
+         return id;
 
     }
 }

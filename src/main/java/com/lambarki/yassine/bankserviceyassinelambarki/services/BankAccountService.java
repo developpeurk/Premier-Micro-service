@@ -9,9 +9,9 @@ import java.util.List;
 public interface BankAccountService {
      BankAccountResponseDTO save(BankAccountRequestDTO bankAccountDTO);
      BankAccountResponseDTO getBankAccount(String id);
-     BankAccountResponseDTO update(BankAccountRequestDTO bankAccountRequestDTO);
+     BankAccountResponseDTO update(String id, BankAccountRequestDTO bankAccountRequestDTO);
      List<BankAccountResponseDTO> getAllBankAccounts();
-     void deleteBankAccount(String id);
+     String deleteBankAccount(String id);
 
 
 }
