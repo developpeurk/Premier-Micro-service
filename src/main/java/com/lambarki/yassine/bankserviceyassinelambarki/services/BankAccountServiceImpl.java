@@ -31,7 +31,7 @@ public class BankAccountServiceImpl implements BankAccountService {
 
     @Override
     public BankAccountResponseDTO getBankAccount(String id) {
-        BankAccount bankAccount = bankAccountRepository.findById(id).get();
+        BankAccount bankAccount = bankAccountRepository.findById(id).orElseThrow(()-> new RuntimeException(String.format("The account with %s not found", id)));
         return bankAccountMapper.fromBankAccount(bankAccount);
     }
 
