@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 
@@ -23,7 +24,9 @@ public class BankAccountServiceImpl implements BankAccountService {
     @Override
     public BankAccountResponseDTO save(BankAccountRequestDTO bankAccountDTO) {
 
+
         BankAccount bankAccount = bankAccountMapper.toBankAccount(bankAccountDTO);
+        bankAccount.setId(UUID.randomUUID().toString());
         BankAccount savedBankAccount = bankAccountRepository.save(bankAccount);
         BankAccountResponseDTO bankAccountResponseDTO = bankAccountMapper.fromBankAccount(savedBankAccount);
         return bankAccountResponseDTO;
