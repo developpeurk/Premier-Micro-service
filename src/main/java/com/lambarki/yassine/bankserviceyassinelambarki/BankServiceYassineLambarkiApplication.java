@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -32,7 +33,7 @@ public class BankServiceYassineLambarkiApplication {
                                 .id(UUID.randomUUID().toString())
                                 .type(random()>0.5? CURRENT_ACCOUNT: SAVING_ACCOUNT)
                                 .balance(1000 + random() * 90000)
-                                .createdAt(new Date())
+                                .createdAt(LocalDate.now())
                                 .currency("MAD")
                                 .build();
                 bankAccountRepository.save(bankAccount);

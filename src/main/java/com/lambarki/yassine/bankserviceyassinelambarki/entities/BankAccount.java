@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -20,7 +21,7 @@ import java.util.Date;
 public class BankAccount {
     @Id
     private String id;
-    private Date createdAt;
+    private LocalDate createdAt;
     private Double balance;
     private String currency;
     @Enumerated(EnumType.STRING)

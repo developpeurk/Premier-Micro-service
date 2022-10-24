@@ -1,10 +1,12 @@
+scalar Date
+
 type Query {
     accountsList: [BankAccount]
 }
 
 type BankAccount {
     id: String,
-    createdAt: Float,
+    createdAt: Date,
     balance: Float,
     currency: String,
     Type: String
