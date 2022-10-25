@@ -5,6 +5,7 @@ import com.lambarki.yassine.bankserviceyassinelambarki.dtos.BankAccountResponseD
 import com.lambarki.yassine.bankserviceyassinelambarki.entities.BankAccount;
 import com.lambarki.yassine.bankserviceyassinelambarki.mappers.BankAccountMapper;
 import com.lambarki.yassine.bankserviceyassinelambarki.repositories.BankAccountRepository;
+import com.lambarki.yassine.bankserviceyassinelambarki.repositories.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class BankAccountServiceImpl implements BankAccountService {
     private BankAccountRepository bankAccountRepository;
+    private CustomerRepository customerRepository;
     private BankAccountMapper bankAccountMapper;
 
     @Override
@@ -55,7 +57,7 @@ public class BankAccountServiceImpl implements BankAccountService {
                 bankAccounts
                         .stream()
                         .map(
-                        bankAccount -> bankAccountMapper.fromBankAccount(bankAccount))
+                        bankAccount ->bankAccountMapper.fromBankAccount(bankAccount))
                         .collect(Collectors.toList());
         return bankAccountResponseDTOS;
 

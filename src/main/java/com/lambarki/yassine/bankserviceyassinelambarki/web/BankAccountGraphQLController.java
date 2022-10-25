@@ -42,5 +42,6 @@ public class BankAccountGraphQLController {
         return bankAccountService.deleteBankAccount(id);
 
     }
+
 }
 

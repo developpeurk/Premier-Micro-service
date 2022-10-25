@@ -2,7 +2,7 @@ scalar Date
 
 type Query {
     accountsList: [BankAccountResponseDTO],
-    accountById(id:String) : BankAccountResponseDTO
+    accountById(id:String) : BankAccountResponseDTO,
 }
 
 type Mutation {
@@ -13,11 +13,18 @@ type Mutation {
 
 
 type BankAccountResponseDTO {
-id: String,
-createdAt: Date,
-balance: Float,
-currency: String,
-Type: String
+    id: String,
+    createdAt: Date,
+    balance: Float,
+    currency: String,
+    type: String,
+    customer : Customer
+}
+
+type Customer {
+    id: ID,
+    name: String,
+    bankAccounts: [BankAccountResponseDTO]
 }
 
 input BankAccountRequestDTO {

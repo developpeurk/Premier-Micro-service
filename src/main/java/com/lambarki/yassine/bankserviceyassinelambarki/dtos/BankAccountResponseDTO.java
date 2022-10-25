@@ -1,5 +1,6 @@
 package com.lambarki.yassine.bankserviceyassinelambarki.dtos;
 
+import com.lambarki.yassine.bankserviceyassinelambarki.entities.Customer;
 import com.lambarki.yassine.bankserviceyassinelambarki.enums.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,4 +18,5 @@ public class BankAccountResponseDTO {
     private Double balance;
     private String currency;
     private AccountType type;
+    private Customer customer;
 }
